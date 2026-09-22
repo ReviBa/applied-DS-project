@@ -1,0 +1,13 @@
+---
+description: Project context for the Applied DS Python course project
+alwaysApply: true
+---
+
+# Applied DS project
+
+- Follow `docs/00_course_requirements.md` and `docs/01_proposal.md`.
+- Primary deliverable: readable Jupyter notebook with short section descriptions.
+- Comments only for non-obvious logic.
+- Keep `data/raw/` immutable; write outputs to `data/processed/`.
+- Stay within the proposal research questions; no scope creep.
+- Use indicative names for variables.
