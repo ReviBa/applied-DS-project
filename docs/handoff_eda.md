@@ -59,21 +59,19 @@ Replaced sparse person one-hots with film-count features in notebook 03:
 
 ## Likely next steps
 
-1. Align [`notebooks/04_user_clustering.ipynb`](notebooks/04_user_clustering.ipynb): `PROFILE_BASE_COLS` still lists `revenue_log` (missing from current `movies_features`); switch to `log_roi` (and optionally film-count cols) before re-running personas.
-2. Re-run clustering / regenerate `user_profiles_scaled.csv` after that fix.
-3. Optional later: top-K named-person one-hots + `has_director` if RQ3 needs named effects.
+1. Cluster users from [`data/processed/user_features.csv`](data/processed/user_features.csv), following [`docs/handoff_clustering.md`](handoff_clustering.md).
+2. Optional later: top-K named-person one-hots + `has_director` if RQ3 needs named effects.
 
 ## Important files
 
 | Path | Role |
 |------|------|
 | `notebooks/03_preprocess_movies.ipynb` | Feature engineering (film counts, encodings) |
-| `notebooks/04_user_clustering.ipynb` | Personas, preference-weighted profiles |
 | `notebooks/05_eda.ipynb` | EDA (refreshed for 81-col features) |
+| `notebooks/06_user_features.ipynb` | User-level features for clustering |
 | `data/processed/movies_features.csv` | Model-ready movie table |
 | `data/processed/ratings.csv` | User–movie ratings |
-| `data/processed/user_personas.csv` | `customer_id`, `persona_id`, `split` only |
-| `data/processed/user_profiles_scaled.csv` | Scaled preference-weighted profiles |
+| `data/processed/user_features.csv` | One row per user |
 
 ## Working rules for the next agent
 
