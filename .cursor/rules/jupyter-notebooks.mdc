@@ -1,0 +1,44 @@
+---
+description: Readable, modular Jupyter notebooks with short cells
+globs: "**/*.ipynb"
+alwaysApply: false
+---
+
+# Jupyter notebook style
+
+Course deliverable: a notebook a reader can follow top to bottom. Match `docs/00_course_requirements.md`.
+
+## Structure
+
+- Start with a markdown title and a short purpose (what this notebook answers).
+- One section = one markdown cell (`##` heading + 1–3 sentences) then the code for that step.
+- Run order is top to bottom. No cell depends on a cell below it.
+- Imports live in one cell near the top. Paths and constants live in the next cell.
+
+## Cell size
+
+- One cell, one job: load, clean, join, plot, or save — not several of these.
+- Keep a code cell to about 15–25 lines. Split when it mixes steps or needs a scroll to read.
+- Show a small check after a transform (`shape`, `head`, null counts) in its own cell.
+- Leave outputs in the notebook when they document a result.
+
+```python
+# ❌ one cell: load + clean + join + plot + save
+
+# ✅ separate cells
+movies = pd.read_csv(RAW / "movies.csv")
+movies.head()
+```
+
+```python
+movies = movies.dropna(subset=["title"]).drop_duplicates("movie_id")
+movies.shape
+```
+
+## Modularity
+
+- Name steps in plain language. A function name should say what it returns (`clean_titles`, `user_genre_shares`).
+- If a block is reused, or longer than ~15 lines of real logic, put it in a function in a cell above its first use.
+- If two notebooks need the same function, move it to `src/` and import it. Do not copy it.
+- A function cell only defines functions. The next cell calls them and shows the result.
+- Comments only for non-obvious choices (a filter threshold, a join key, a dropped column).
