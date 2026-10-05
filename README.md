@@ -4,6 +4,8 @@ Applied Data Science project (Python): predicting user ratings with TMDB product
 
 ## Setup
 
+Requires Python 3.9 or newer.
+
 ```bash
 python -m venv .venv
 .venv\Scripts\activate
